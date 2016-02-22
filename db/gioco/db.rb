@@ -1,0 +1,5 @@
+require "#{Rails.root}/db/gioco/create_badge_prospect.rb"
+require "#{Rails.root}/db/gioco/create_badge_blue_chip_prospect.rb"
+require "#{Rails.root}/db/gioco/create_badge_contender.rb"
+require "#{Rails.root}/db/gioco/create_badge_champion.rb"
+require "#{Rails.root}/db/gioco/create_badge_undisputed_champion.rb"

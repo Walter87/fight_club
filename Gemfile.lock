@@ -88,6 +88,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.2)
       i18n (~> 0.5)
+    gioco (1.1.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -249,6 +250,7 @@ DEPENDENCIES
   decent_exposure
   factory_girl_rails
   faker
+  gioco
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
   jquery-rails
