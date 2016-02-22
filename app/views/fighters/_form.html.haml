@@ -1,7 +1,11 @@
-= simple_form_for(@fighter) do |f|
-  = f.error_notification
-
-  .form-inputs
-
-  .form-actions
-    = f.button :submit
+= simple_form_for fighter, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :first_name
+  = f.error_span :first_name
+  = f.input :last_name
+  = f.error_span :last_name
+  = f.input :description
+  = f.error_span :description
+  = f.input :avatar, as: :file
+  = f.error_span :avatar
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), fighters_path, :class => 'btn btn-default'
