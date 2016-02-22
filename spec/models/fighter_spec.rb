@@ -17,5 +17,15 @@
 require 'rails_helper'
 
 RSpec.describe Fighter, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    expect(build(:fighter)).to be_valid
+  end
+  it 'has an invalid factory without first_name' do
+    expect(build(:fighter, first_name: '')).to_not be_valid
+  end
+  it 'has an invalid factory without last_name' do
+    expect(build(:fighter, last_name: '')).to_not be_valid
+  end
+  it { is_expected.to validate_presence_of(:first_name) }
+  it { is_expected.to validate_presence_of(:last_name) }
 end

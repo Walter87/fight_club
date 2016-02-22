@@ -16,8 +16,8 @@
 
 FactoryGirl.define do
   factory :fighter do
-    first_name "MyString"
-    last_name "MyString"
-    description "MyText"
+    first_name "John"
+    last_name "Doeu"
+    description "Extra Fighter"
   end
 end
