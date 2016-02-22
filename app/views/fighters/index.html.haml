@@ -1,0 +1,19 @@
+%h1 Listing fighters
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @fighters.each do |fighter|
+      %tr
+        %td= link_to 'Show', fighter
+        %td= link_to 'Edit', edit_fighter_path(fighter)
+        %td= link_to 'Destroy', fighter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Fighter', new_fighter_path

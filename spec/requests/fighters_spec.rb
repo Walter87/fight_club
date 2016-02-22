@@ -14,8 +14,13 @@
 #  avatar_updated_at   :datetime
 #
 
-class Fighter < ActiveRecord::Base
+require 'rails_helper'
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+RSpec.describe "Fighters", type: :request do
+  describe "GET /fighters" do
+    it "works! (now write some real specs)" do
+      get fighters_path
+      expect(response).to have_http_status(200)
+    end
+  end
 end
