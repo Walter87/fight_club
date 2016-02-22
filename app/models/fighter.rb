@@ -12,11 +12,13 @@
 #  avatar_content_type :string
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  points              :integer
 #
 
 class Fighter < ActiveRecord::Base
-has_many :badges , :through => :levels 
-has_many :levels  
+has_many :badges , through: :levels
+has_many :skills, through: :badges
+has_many :levels
 
 def change_points(options)
   if Gioco::Core::KINDS

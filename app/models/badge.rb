@@ -1,6 +1,19 @@
+# == Schema Information
+#
+# Table name: badges
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  points     :integer
+#  default    :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Badge < ActiveRecord::Base
-has_many :fighters , :through => :levels 
+has_many :fighters , :through => :levels
 has_many :levels  , :dependent => :destroy
+has_many :skills
 validates :name, :presence => true
 
 def add(resource_id)
