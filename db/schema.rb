@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222204038) do
+ActiveRecord::Schema.define(version: 20160223135035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(version: 20160222204038) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "points"
+  end
+
+  create_table "fighters_skills", id: false, force: :cascade do |t|
+    t.integer "fighter_id"
+    t.integer "skill_id"
   end
 
   create_table "levels", force: :cascade do |t|

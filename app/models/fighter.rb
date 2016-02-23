@@ -17,8 +17,8 @@
 
 class Fighter < ActiveRecord::Base
 has_many :badges , through: :levels
-has_many :skills, through: :badges
 has_many :levels
+has_and_belongs_to_many :skills
 
 def change_points(options)
   if Gioco::Core::KINDS
