@@ -1,4 +1,8 @@
+-if flash[:notice] == 'Fighter was successfully created.'
+  =render partial: 'modal'
+
 - model_class = Fighter
+
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
@@ -14,6 +18,20 @@
   %strong= model_class.human_attribute_name(:description) + ':'
   %br
   =  fighter.description
+%p
+  %strong= model_class.human_attribute_name(:badges) + ':'
+  %br
+  =  fighter.badges.last[:name]
+%p
+  %strong= model_class.human_attribute_name(:next_badge) + ':'
+  %br
+  = "Needs #{fighter.next_badge?.first.second[:points]} points to achive #{fighter.next_badge?.first.second[:name]} level"
+%p
+  %strong= model_class.human_attribute_name(:skills) + ':'
+  %br
+  %ol
+    - fighter.skills.each do |skill|
+      %li=skill.name
 %p
   %strong= model_class.human_attribute_name(:avatar_file_name) + ':'
   %br

@@ -18,11 +18,13 @@
 class FightersController < ApplicationController
   expose(:fighters)
   expose(:fighter)
+  expose(:levels)
 
 
   def create
     self.fighter = Fighter.new(fighter_params)
     if fighter.save
+      fighter.change_points(1)
       redirect_to fighter, notice: 'Fighter was successfully created.'
     else
       render :new
@@ -45,6 +47,6 @@ class FightersController < ApplicationController
 
   private
     def fighter_params
-      params.require(:fighter).permit(:first_name, :last_name, :description, :avatar)
+      params.require(:fighter).permit(:first_name, :last_name, :description, :avatar, skill_ids: [])
     end
 end
