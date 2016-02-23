@@ -19,6 +19,10 @@ class Fighter < ActiveRecord::Base
 has_many :badges , through: :levels
 has_many :levels
 has_and_belongs_to_many :skills
+has_many :fights
+has_many :opponents, through: :fight
+has_many :inverse_fights, class_name: "Fight", foregin_key: "opponent_id"
+has_many :inverse_opponents, through: :inverse_fights, sourse: :user
 
 def change_points(options)
   if Gioco::Core::KINDS
