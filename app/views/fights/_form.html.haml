@@ -1,0 +1,5 @@
+= simple_form_for fight, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :fighter_id
+  = f.input :opponent_id
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), fights_path, :class => 'btn btn-default'
