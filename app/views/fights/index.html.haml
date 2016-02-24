@@ -13,8 +13,8 @@
     - fights.each do |fight|
       %tr
         %td= link_to fight.id, fight_path(fight)
-        %td= fight.fighter_id
-        %td= fight.opponent_id
+        %td= fight.fighter.first_name
+        %td= fight.opponent.first_name
         %td=l fight.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_fight_path(fight), :class => 'btn btn-default btn-xs'
