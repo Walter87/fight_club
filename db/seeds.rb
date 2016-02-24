@@ -6,8 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require "#{Rails.root}/db/gioco/db.rb"
-skills = [["jab","cross","going around","balance","left body hook"],["left hook","body jab","blocking a jab","parry a punch","going away"],
-["blocking an uppercut","left uppercut","right uppercut","right hook"],["rolling","slipping","blocking a hook"],["combo","countering"]]
+skills = [[:jab,:cross,:going_around,:balance,:left_body_hook],
+[:left_hook,:body_jab,:blocking_a_jab,:parry_a_punch,:going_away],
+[:blocking_an_uppercut,:left_uppercut,:right_uppercut,:right_hook],
+[:rolling,:slipping,:blocking_a_hook, :body_cross],
+[:right_body_hook,:countering,:clinch]]
 skills.each do |x|
   x.each do |y|
     Skill.create({
@@ -17,3 +20,4 @@ skills.each do |x|
   end
 end
 puts '> Skills successfully created'
+
