@@ -6,7 +6,7 @@ class Fight < ActiveRecord::Base
   validates :fighter_id, :opponent_id, presence: :true
 
 
-  def fight_now()
+  def fight_now
     self.fighter.hp = 100
     self.opponent.hp = 100
     self.course = []
@@ -15,8 +15,6 @@ class Fight < ActiveRecord::Base
     probability = probability < 0.3 ? 0.3 : probability
     while self.fighter.hp * self.opponent.hp > 0 do
       luckily = rand
-      puts luckily
-      puts probability
       if luckily > probability
         rally fighters[1],fighters[0]
       else
@@ -26,6 +24,7 @@ class Fight < ActiveRecord::Base
     winner = fighters.detect {|fighter| fighter.hp > 0}
     self.course << "This is the end. After that punch #{winner.first_name} #{winner.last_name} wins the fight."
     winner.change_points(10)
+    winner
   end
 
   private
