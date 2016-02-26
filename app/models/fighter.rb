@@ -21,7 +21,10 @@ has_many :badges , through: :levels
 has_many :levels
 has_and_belongs_to_many :skills
 has_many :fights
+has_many :verdicts, through: :fights
 has_many :opponents, through: :fights
+has_many :wins, class_name: "Verdict", foreign_key: "winner_id"
+has_many :loses, class_name: "Verdict", foreign_key: "loser_id"
 has_many :inverse_fights, class_name: "Fight", foreign_key: "opponent_id"
 has_many :inverse_opponents, through: :inverse_fights, source: :fighter
 

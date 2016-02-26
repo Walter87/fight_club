@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223193535) do
+ActiveRecord::Schema.define(version: 20160226165842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160223193535) do
     t.integer  "opponent_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "relation"
   end
 
   create_table "levels", force: :cascade do |t|
@@ -64,6 +65,14 @@ ActiveRecord::Schema.define(version: 20160223193535) do
   end
 
   add_index "skills", ["badge_id"], name: "index_skills_on_badge_id", using: :btree
+
+  create_table "verdicts", force: :cascade do |t|
+    t.integer  "winner_id"
+    t.integer  "loser_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "fight_id"
+  end
 
   add_foreign_key "skills", "badges"
 end
