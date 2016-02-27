@@ -29,6 +29,7 @@
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             %li= link_to "Fighters", fighters_path
+            %li= link_to "New Fighter", new_fighter_path
             %li= link_to "Fights", fights_path
             %li= link_to "New Fight", new_fight_path
 
@@ -39,11 +40,10 @@
           = yield
         .col-lg-3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3 Fight Club Fighters
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              -Fighter.all.each do |fighter|
+                %li= link_to "#{fighter.first_name} #{fighter.last_name}", fighter_path(fighter)
+
       %footer
         %p &copy; Company 2016
