@@ -12,8 +12,8 @@
 
 FactoryGirl.define do
   factory :badge do
-    name "MyString"
-    points 1
+    name "first"
+    points 10
     default false
   end
 end
