@@ -947,8 +947,10 @@
         0,
         0,
         0,
+        0,
         null,
         0,
+        null,
         null,
         null,
         1,
@@ -1009,7 +1011,7 @@
         1,
         null,
         1,
-        1,
+        null,
         null
       ],
       "/home/grzegorz/fight_club/app/models/badge.rb": [
@@ -1070,6 +1072,14 @@
         null,
         1,
         1,
+        2,
+        2,
+        2,
+        null,
+        1,
+        2,
+        2,
+        null,
         null
       ],
       "/home/grzegorz/fight_club/app/models/fight.rb": [
@@ -1084,7 +1094,7 @@
         null,
         null,
         1,
-        0,
+        2,
         0,
         null,
         null,
@@ -1552,6 +1562,6 @@
         null
       ]
     },
-    "timestamp": 1456587212
+    "timestamp": 1456593590
   }
 }
