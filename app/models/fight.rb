@@ -1,5 +1,6 @@
 class Fight < ActiveRecord::Base
   attr_accessor :course
+  attr_accessor :winner
   belongs_to :fighter
   belongs_to :opponent, class_name: "Fighter"
   has_one :verdict
@@ -31,12 +32,13 @@ class Fight < ActiveRecord::Base
       end
     end
     winner = fighters.detect {|fighter| fighter.hp > 0}
-    loser = fighters.detect {|fighter| fighter.hp < 0}
+    loser = fighters.detect {|fighter| fighter.hp <= 0}
     self.create_verdict!(winner_id: winner.id, loser_id: loser.id)
     self.course << "This is the end. After that punch #{winner.first_name} #{winner.last_name} wins the fight."
     self.relation = self.course.map(&:inspect).join("\n- ")
     self.save
     winner.change_points(10)
+    $actual_skills = winner.skill_ids
     winner
   end
 

@@ -3,6 +3,7 @@ class FightsController < ApplicationController
   expose(:fight)
   expose(:fighter)
   expose(:opponent)
+  expose(:verdict)
 
   def create
     self.fight = Fight.new(fight_params)
@@ -16,6 +17,17 @@ class FightsController < ApplicationController
   def destroy
     if fight.destroy
       redirect_to fights_url, notice: 'Fight was successfully destroyed.'
+    end
+  end
+
+  def fight_now
+    sum_of_badges = fight.fighter.badges.length + fight.opponent.badges.length
+    fight.fight_now
+    if sum_of_badges != fight.fighter.badges.length + fight.opponent.badges.length
+      flash.keep[:success] = "Winner just got the new badge."
+      render 'show'
+    else
+      render 'show'
     end
   end
 

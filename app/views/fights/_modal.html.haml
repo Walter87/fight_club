@@ -1,0 +1,15 @@
+#myModalfight.modal.fade{:role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4.modal-title
+          Choose Your new Fighter path
+      .modal-body
+        %p Oh dear. It was really great fight. While our pony will have some rest after it, we need to plan now which way we want him to go. How do You think boss, what was he lacked of during that fight. He has done some great job till now. Let's choose now just two skills we will be working at till the next fight...Our pony must have something in the pocket then.
+        = simple_form_for fighter = Fighter.find(fight.verdict.winner_id), :html => { :class => 'form-horizontal', :id => "adding_skills" } do |f|
+          = f.collection_check_boxes(:skill_ids, Skill.where(badge_id: fighter.badges.last.id), :id, :name)
+          = f.button :submit, :class => 'btn-primary'
+      .modal-footer
+

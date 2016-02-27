@@ -5,7 +5,7 @@ $(document).ready(function() {
         $(this).prop('checked', false)
    }
   });
-  $("form").submit(function(){
+  $("#adding_fighter").submit(function(){
     if($(this).find("input:checked").length < 3){
       alert("Hey boss. He is not here to rest. He needs to work hard now. Choose at least three skills for him to work on. We don't respect laziness.");
       return false;

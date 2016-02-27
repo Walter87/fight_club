@@ -32,7 +32,13 @@ class FightersController < ApplicationController
   end
 
   def update
-    if self.fighter.update(fighter_params)
+    if $actual_skills
+      params_merged = fighter_params.merge(skill_ids:  $actual_skills.map(&:to_s)+params[:fighter][:skill_ids])
+    else
+      params_merged = fighter_params
+    end
+    $actual_skills = nil
+    if self.fighter.update(params_merged)
       redirect_to fighter, notice: 'Fighter was successfully updated.'
     else
       render :edit
@@ -49,4 +55,5 @@ class FightersController < ApplicationController
     def fighter_params
       params.require(:fighter).permit(:first_name, :last_name, :description, :avatar, skill_ids: [])
     end
+
 end

@@ -25,7 +25,10 @@
 %p
   %strong= model_class.human_attribute_name(:next_badge) + ':'
   %br
-  = "Needs #{fighter.next_badge?.first.second[:points]} points to achive #{fighter.next_badge?.first.second[:name]} level"
+  - if fighter.badges.last != Badge.last
+    = "Needs #{fighter.next_badge?[:points]} points to achive #{fighter.next_badge?[:badge][:name]} level"
+  - else
+    = "This is undisputed champion. Here is no next badge."
 %p
   %strong= model_class.human_attribute_name(:skills) + ':'
   %br

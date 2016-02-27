@@ -8,10 +8,8 @@
           Choose Your new Fighter path
       .modal-body
         %p Someone new in the club? We won't let him rest on his laurels. So let put him through the hoops. How do You think Boss? Which techniques would be best for him at the beginning. Choose three! We don't know yet is he worth of our time...
-        = simple_form_for fighter, :html => { :class => 'form-horizontal' } do |f|
+        = simple_form_for fighter, :html => { :class => 'form-horizontal',:id => 'adding_fighter'  } do |f|
           = f.collection_check_boxes(:skill_ids, Skill.where(badge_id: fighter.badges.first.id), :id, :name)
           = f.button :submit, :class => 'btn-primary'
-          = link_to t('.cancel', :default => t("helpers.links.cancel")), fighters_path, :class => 'btn btn-default'
       .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        %button.btn.btn-primary{:type => "button"} Save changes
+
