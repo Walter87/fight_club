@@ -25,3 +25,18 @@
     text-align: center;
     img { width: 100% }
 }
+
+html body{
+
+    background: url('bg.jpg') no-repeat center center fixed;
+}
+
+table {
+    background-color: #f9f9f9;
+}
+
+p {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
