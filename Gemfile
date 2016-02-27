@@ -31,6 +31,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "paperclip", "~> 4.3"
 gem 'gioco'
 gem "rails-erd"
+gem 'gon'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
