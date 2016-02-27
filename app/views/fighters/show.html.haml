@@ -8,6 +8,9 @@
 
 .col-md-6
   %p
+    %br
+    = image_tag(fighter.avatar.url(:thumb))
+  %p
     %strong= model_class.human_attribute_name(:first_name) + ':'
     %br
     =  fighter.first_name
@@ -53,9 +56,4 @@
   = link_to t('.back', :default => t("helpers.links.back")), fighters_path, :class => 'btn btn-default'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_fighter_path( fighter), :class => 'btn btn-default'
   = link_to t('.destroy', :default => t("helpers.links.destroy")), fighter_path( fighter), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
-
-%p.col-md-6
-  %strong= model_class.human_attribute_name(:avatar_file_name) + ':'
-  %br
-  = image_tag(fighter.avatar.url(:thumb))
 

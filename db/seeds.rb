@@ -21,3 +21,24 @@ skills.each do |x|
 end
 puts '> Skills successfully created'
 
+fighter1 = Fighter.create!(
+  first_name:  "John",
+  last_name:   "Rambo",
+  skill_ids: [1,2,3]
+    )
+
+fighter2 = Fighter.create!(
+  first_name:  "Muhammad",
+  last_name:   "Ali",
+  skill_ids: [1,3,4]
+    )
+
+fighter3 = Fighter.create!(
+  first_name:  "Roy",
+  last_name:   "Jones Jr",
+  skill_ids: [1,3,4]
+    )
+
+fighter1.change_points(1);
+fighter2.change_points(1);
+fighter3.change_points(1);
