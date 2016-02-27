@@ -27,6 +27,20 @@ RSpec.describe Fighter, type: :model do
   it 'has an invalid factory without last_name' do
     expect(build(:fighter, last_name: '')).to_not be_valid
   end
-  it { is_expected.to validate_presence_of(:first_name) }
-  it { is_expected.to validate_presence_of(:last_name) }
+  context "associations" do
+    it { is_expected.to have_many(:badges) }
+    it { is_expected.to have_many(:levels) }
+    it { is_expected.to have_many(:fights) }
+    it { is_expected.to have_many(:inverse_fights) }
+    it { is_expected.to have_many(:verdicts) }
+    it { is_expected.to have_many(:opponents) }
+    it { is_expected.to have_many(:inverse_opponents) }
+    it { is_expected.to have_many(:loses) }
+    it { is_expected.to have_many(:wins) }
+    it { is_expected.to have_and_belong_to_many(:skills)  }
+  end
+  context "validations" do
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:last_name) }
+  end
 end

@@ -1168,8 +1168,22 @@
         1,
         1,
         null,
+        1,
         2,
         2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
+        1,
+        2,
+        2,
+        null,
         null
       ],
       "/home/grzegorz/fight_club/app/models/fighter.rb": [
@@ -1562,6 +1576,6 @@
         null
       ]
     },
-    "timestamp": 1456593590
+    "timestamp": 1456594360
   }
 }
