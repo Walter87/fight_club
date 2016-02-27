@@ -14,14 +14,14 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-27T18:54:31+01:00">2016-02-27T18:54:31+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-27T21:36:54+01:00">2016-02-27T21:36:54+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">75.51%</span></span>
+    (<span class="covered_percent"><span class="red">75.29%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>45</b> files in total.
-    <b>682</b> relevant lines. 
-    <span class="green"><b>515</b> lines covered</span> and
-    <span class="red"><b>167</b> lines missed </span>
+    <b>688</b> relevant lines. 
+    <span class="green"><b>518</b> lines covered</span> and
+    <span class="red"><b>170</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,22 +62,22 @@
       
       <tr>
         <td class="strong"><a href="#d50b2d3216ba8cc1ba303233d5a28686f0f6829a" class="src_link" title="app/controllers/fighters_controller.rb">app/controllers/fighters_controller.rb</a></td>
-        <td class="green strong">95.83 %</td>
-        <td>59</td>
+        <td class="green strong">92.31 %</td>
+        <td>63</td>
+        <td>26</td>
         <td>24</td>
-        <td>23</td>
-        <td>1</td>
-        <td>3.2</td>
+        <td>2</td>
+        <td>3.0</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#84a68c746dff19933a1a9a80d18ee56dfda83a6a" class="src_link" title="app/controllers/fights_controller.rb">app/controllers/fights_controller.rb</a></td>
-        <td class="red strong">66.67 %</td>
-        <td>40</td>
-        <td>24</td>
-        <td>16</td>
-        <td>8</td>
-        <td>1.5</td>
+        <td class="red strong">62.96 %</td>
+        <td>44</td>
+        <td>27</td>
+        <td>17</td>
+        <td>10</td>
+        <td>1.4</td>
       </tr>
       
       <tr>
@@ -323,9 +323,9 @@
       <tr>
         <td class="strong"><a href="#6849f5604393ffadb387eeaca2c75c41e979290e" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>5</td>
-        <td>5</td>
+        <td>9</td>
+        <td>6</td>
+        <td>6</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -597,11 +597,11 @@
         <div class="source_table" id="d50b2d3216ba8cc1ba303233d5a28686f0f6829a">
   <div class="header">
     <h3>app/controllers/fighters_controller.rb</h3>
-    <h4><span class="green">95.83 %</span> covered</h4>
+    <h4><span class="green">92.31 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>23</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <b>26</b> relevant lines. 
+      <span class="green"><b>24</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -809,154 +809,178 @@
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">  def update</code>
+          <code class="ruby">  def ranking</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="35">
-          <span class="hits">5</span>
+        <li class="missed" data-hits="0" data-linenumber="35">
           
-          <code class="ruby">    if $actual_skills</code>
+          
+          <code class="ruby">    @ranking = Gioco::Ranking.generate</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">      params_merged = fighter_params.merge(skill_ids:  $actual_skills.map(&amp;:to_s)+params[:fighter][:skill_ids])</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def update</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="39">
+          <span class="hits">5</span>
+          
+          <code class="ruby">    if $actual_skills</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="40">
+          
+          
+          <code class="ruby">      params_merged = fighter_params.merge(skill_ids:  $actual_skills.map(&amp;:to_s)+params[:fighter][:skill_ids])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="38">
+        <li class="covered" data-hits="5" data-linenumber="42">
           <span class="hits">5</span>
           
           <code class="ruby">      params_merged = fighter_params</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="40">
+        <li class="covered" data-hits="5" data-linenumber="44">
           <span class="hits">5</span>
           
           <code class="ruby">    $actual_skills = nil</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="41">
+        <li class="covered" data-hits="5" data-linenumber="45">
           <span class="hits">5</span>
           
           <code class="ruby">    if self.fighter.update(params_merged)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="42">
+        <li class="covered" data-hits="3" data-linenumber="46">
           <span class="hits">3</span>
           
           <code class="ruby">      redirect_to fighter, notice: &#39;Fighter was successfully updated.&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="44">
+        <li class="covered" data-hits="2" data-linenumber="48">
           <span class="hits">2</span>
           
           <code class="ruby">      render :edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="49">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def destroy</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="49">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    if fighter.destroy</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="50">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      redirect_to fighters_url, notice: &#39;Fighter was successfully destroyed.&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="53">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    if fighter.destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      redirect_to fighters_url, notice: &#39;Fighter was successfully destroyed.&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
+        <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
           <code class="ruby">    def fighter_params</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="56">
+        <li class="covered" data-hits="20" data-linenumber="60">
           <span class="hits">20</span>
           
           <code class="ruby">      params.require(:fighter).permit(:first_name, :last_name, :description, :avatar, skill_ids: [])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby">end</code>
@@ -969,11 +993,11 @@
         <div class="source_table" id="84a68c746dff19933a1a9a80d18ee56dfda83a6a">
   <div class="header">
     <h3>app/controllers/fights_controller.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">62.96 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
-      <span class="red"><b>8</b> lines missed.</span>
+      <b>27</b> relevant lines. 
+      <span class="green"><b>17</b> lines covered</span> and
+      <span class="red"><b>10</b> lines missed.</span>
     </div>
   </div>
   
@@ -1127,94 +1151,118 @@
         <li class="missed" data-hits="0" data-linenumber="25">
           
           
-          <code class="ruby">    fight.fight_now</code>
+          <code class="ruby">    fight.winner = fight.fight_now</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="26">
           
           
-          <code class="ruby">    if sum_of_badges != fight.fighter.badges.length + fight.opponent.badges.length</code>
+          <code class="ruby">    gon.skills_allowed = skills_allowed_to_choose</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">      flash.keep[:success] = &quot;Winner just got the new badge.&quot;</code>
+          <code class="ruby">    if sum_of_badges != fight.fighter.badges.length + fight.opponent.badges.length</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="28">
           
           
+          <code class="ruby">      flash.keep[:success] = &quot;Winner just got the new badge.&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
           <code class="ruby">      render &#39;show&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
+        <li class="missed" data-hits="0" data-linenumber="31">
           
           
           <code class="ruby">      render &#39;show&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
           <code class="ruby">  def fight_params</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="37">
+        <li class="covered" data-hits="10" data-linenumber="38">
           <span class="hits">10</span>
           
           <code class="ruby">    params.require(:fight).permit(:fighter_id, :opponent_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def skills_allowed_to_choose</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="42">
+          
+          
+          <code class="ruby">    [4,5].any? { |x| x == fight.winner.badges.last.id } ? 1 : 2</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">end</code>
@@ -6731,8 +6779,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>5</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>6</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6761,22 +6809,34 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
+          <code class="ruby">  get &#39;ranking&#39;, to: &#39;fighters#ranking&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
           <code class="ruby">  resources :fights do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
           <code class="ruby">    get &#39;fight_now&#39;, to: &#39;fights#fight_now&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">end</code>

@@ -33,6 +33,7 @@
             %li= link_to "New Fighter", new_fighter_path
             %li= link_to "Fights", fights_path
             %li= link_to "New Fight", new_fight_path
+            %li= link_to "Ranking", ranking_path
 
     .container
       .row
@@ -47,4 +48,4 @@
                 %li= link_to "#{fighter.first_name} #{fighter.last_name}", fighter_path(fighter)
 
       %footer
-        %p &copy; Company 2016
+        %p &copy; Fight Club 2016

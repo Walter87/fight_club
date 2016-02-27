@@ -1,0 +1,29 @@
+- model_class = Fighter
+.page-header
+  %h1
+    Fighters Ranking
+%table.table
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:avatar)
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:first_name)
+      %th= model_class.human_attribute_name(:last_name)
+      %th= model_class.human_attribute_name(:points)
+      %th= model_class.human_attribute_name(:badge)
+      %th= model_class.human_attribute_name(:wins)
+      %th= model_class.human_attribute_name(:loses)
+  %tbody
+    - @ranking.each do |fighter|
+      %tr
+        %td.round-image-50=image_tag(fighter.avatar.url(:thumb))
+        %td= fighter.id
+        %td= fighter.first_name
+        %td= fighter.last_name
+        %td= fighter.points
+        %td= fighter.badges.last.name
+        %td= fighter.wins.count
+        %td= fighter.loses.count
+
+
+

@@ -31,6 +31,10 @@ class FightersController < ApplicationController
     end
   end
 
+  def ranking
+    @ranking = Gioco::Ranking.generate
+  end
+
   def update
     if $actual_skills
       params_merged = fighter_params.merge(skill_ids:  $actual_skills.map(&:to_s)+params[:fighter][:skill_ids])
