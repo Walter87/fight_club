@@ -1,5 +1,8 @@
 $(document).ready(function() {
-  $('#myModalfight').modal('show')
+  $('#myModalfight').modal({
+    backdrop: 'static',
+    keyboard: false
+  })
   $('input[type=checkbox]').change(function(e){
    if ($('input[type=checkbox]:checked').length > gon.skills_allowed) {
         $(this).prop('checked', false)

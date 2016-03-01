@@ -1,5 +1,8 @@
 $(document).ready(function() {
-  $('#myModal').modal()
+  $('#myModal').modal({
+    backdrop: 'static',
+    keyboard: false
+  })
   $('input[type=checkbox]').change(function(e){
    if ($('input[type=checkbox]:checked').length > 3) {
         $(this).prop('checked', false)

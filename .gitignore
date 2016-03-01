@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+# Ignore avatars added by user
+/public/system/fighters/avatars/*
