@@ -20,6 +20,18 @@ class FightsController < ApplicationController
     end
   end
 
+  def update
+    if fight.relation
+      redirect_to fight, notice: "You can not edit this fight. The fight already had place."
+    else
+      if fight.update(fight_params)
+        redirect_to fight, notice: 'Fight was successfully updated.'
+      else
+        render :edit
+      end
+    end
+  end
+
   def fight_now
     sum_of_badges = fight.fighter.badges.length + fight.opponent.badges.length
     fight.winner = fight.fight_now
