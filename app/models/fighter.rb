@@ -27,6 +27,10 @@ has_many :wins, class_name: "Verdict", foreign_key: "winner_id"
 has_many :loses, class_name: "Verdict", foreign_key: "loser_id"
 has_many :inverse_fights, class_name: "Fight", foreign_key: "opponent_id"
 has_many :inverse_opponents, through: :inverse_fights, source: :fighter
+validates :first_name, :last_name, presence: true
+has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
+validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+validates :first_name, :last_name, length: { in: 2..20 }
 
 def change_points(options)
   if Gioco::Core::KINDS
@@ -68,10 +72,6 @@ def next_badge?(kind_id = false)
                       }
   end
 end
-  validates :first_name, :last_name, presence: true
-
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
   def attacks
@@ -89,7 +89,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 8
         string_returned += "#{defencer.first_name} is blocking the jab."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "#{attacker.first_name} is missing."
       else
@@ -103,7 +103,7 @@ end
       luckily = rand
       if (defencer.skill_ids & [3,4,9,10,15,16,21]).length > 0
         string_returned += "#{defencer.first_name} protects himself very well."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "..missing."
       else
@@ -117,7 +117,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 17
         string_returned += "#{defencer.first_name} is blocking the hook."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "#{attacker.first_name} is missing. What is going on."
       else
@@ -131,7 +131,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 17
         string_returned += "#{defencer.first_name} is blocking the hook."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "#{attacker.first_name} throws a hook but it didn't find the way."
       else
@@ -145,7 +145,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 8
         string_returned += "#{defencer.first_name} is blocking the jab."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "#{attacker.first_name} is missing."
       else
@@ -159,7 +159,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 11
         string_returned += "#{defencer.first_name} is blocking the uppercat."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "#{attacker.first_name} is missing next to opponent's chin. Happy #{defencer.last_name}"
       else
@@ -173,7 +173,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 11
         string_returned += "#{defencer.first_name} is blocking the uppercat."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "Missing."
       else
@@ -187,7 +187,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 17
         string_returned += "#{defencer.first_name} is blocking the hook."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "#{attacker.first_name} throws a hook but it didn't find the way."
       else
@@ -201,7 +201,7 @@ end
       luckily = rand
       if (defencer.skill_ids & [3,4,9,10,15,16,21]).length > 0
         string_returned += "#{defencer.first_name} protects himself very well."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "..missing."
       else
@@ -215,7 +215,7 @@ end
       luckily = rand
       if defencer.skill_ids.include? 17
         string_returned += "#{defencer.first_name} is blocking the hook."
-        string_returned += counter_attack(defencer)
+        string_returned += counter_attack(attacker,defencer)
       elsif luckily > 0.7
         string_returned += "Missed."
       else
@@ -224,7 +224,7 @@ end
       end
     end
 
-    def counter_attack(defencer)
+    def counter_attack(attacker,defencer)
       if defencer.skill_ids.include? 20
         if rand > 0.7
           "#{defencer.last_name} takes a counter attack but he is missing."
