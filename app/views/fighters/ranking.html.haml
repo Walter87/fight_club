@@ -16,7 +16,7 @@
   %tbody
     - @ranking.each do |fighter|
       %tr
-        %td.round-image-50=image_tag(fighter.avatar.url(:thumb))
+        %td=image_tag(fighter.avatar.url(:thumb), class: "round-image-50")
         %td= fighter.id
         %td= fighter.first_name
         %td= fighter.last_name

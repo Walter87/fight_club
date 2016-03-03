@@ -16,7 +16,7 @@ class Fight < ActiveRecord::Base
 
 
   def fight_now
-    return nil if self.relation
+    return false if self.relation
     self.fighter.hp = 100
     self.opponent.hp = 100
     self.course = []
