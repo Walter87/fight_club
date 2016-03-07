@@ -33,14 +33,17 @@ class FightsController < ApplicationController
   end
 
   def fight_now
-    sum_of_badges = fight.fighter.badges.length + fight.opponent.badges.length
-    fight.winner = fight.fight_now
-    gon.skills_allowed = skills_allowed_to_choose
-    if sum_of_badges != fight.fighter.badges.length + fight.opponent.badges.length
-      flash.keep[:success] = "Winner just got the new badge."
-      render 'show'
+    sum_of_badges = fight.fighter_badges.length + fight.opponent_badges.length
+    if fight.winner = fight.fight_now
+      gon.skills_allowed = skills_allowed_to_choose
+      if sum_of_badges != fight.fighter_badges.length + fight.opponent_badges.length
+        flash.keep[:success] = "Winner just got the new badge."
+        render 'show'
+      else
+        redirect_to fight, flash: { success: "Fight is over. #{fight.winner_first_name} won the fight." }
+      end
     else
-      render 'show'
+      redirect_to fight, notice: "This fight already had a place."
     end
   end
 
@@ -51,6 +54,6 @@ class FightsController < ApplicationController
   end
 
   def skills_allowed_to_choose
-    [4,5].any? { |x| x == fight.winner.badges.last.id } ? 1 : 2
+    [4,5].any? { |x| x == fight.winner_badges.last.id } ? 1 : 2
   end
 end

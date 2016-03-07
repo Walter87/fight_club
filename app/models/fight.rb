@@ -1,6 +1,9 @@
 class Fight < ActiveRecord::Base
   attr_accessor :course
   attr_accessor :winner
+  delegate :badges, to: :fighter, prefix: true, allow_nil: false
+  delegate :badges, to: :opponent, prefix: true, allow_nil: false
+  delegate :badges, :first_name, to: :winner, prefix: true, allow_nil: false
   belongs_to :fighter
   belongs_to :opponent, class_name: "Fighter"
   has_one :verdict
