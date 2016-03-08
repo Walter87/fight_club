@@ -50,7 +50,7 @@ class Fight < ActiveRecord::Base
     def rally(attacker,defencer)
       attack = Skill.find_by_id(attacker.attacks.sample)
       self.course << "#{attacker.first_name} sends #{attack.name} to #{defencer.first_name}"
-      action = attacker.send attack.name.to_sym, attacker, defencer
+      action = attacker.send attack.name.to_sym, defencer
       self.course << action
     end
 
