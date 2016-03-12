@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root 'fighters#index'
   resources :fighters
   get 'ranking', to: 'fighters#ranking'
