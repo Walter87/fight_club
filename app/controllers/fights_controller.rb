@@ -1,5 +1,5 @@
 class FightsController < ApplicationController
-  expose(:fights)
+  expose(:fights) { Fight.all.includes(:fighter, :opponent)}
   expose(:fight)
   expose(:fighter)
   expose(:opponent)
